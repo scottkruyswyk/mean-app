@@ -48,6 +48,33 @@ app.get('/person',function(req,res){
 	});
 });
 
+app.get('/person/:id',function(req,res){
+	var Id = req.params.id;
+
+	var data = {
+		"People":""
+	};
+	
+	var db = req.db;
+	db.collection('people').find({_id:mongo.helper.toObjectID(Id)}).toArray(function (err, items) {
+		if (!!err) {
+			data["People"] = "Error fetching data";
+			data.error = err;
+			res.json(data);
+		} else {
+			if (!!items && items.length != 0) {
+				data["error"] = 0;
+				data["People"] = items;
+				res.json(data);
+			} else {
+				data["error"] = 1;
+				data["People"] = 'No people found';
+				res.json(data);
+			}
+		}
+	});
+});
+
 app.post('/person',function(req,res){
 	var firstName = req.body.firstname;
 	var middleName = req.body.middleName;
