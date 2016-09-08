@@ -1,4 +1,4 @@
 <div ui-view='header'></div>
-<div ng-controller="homeCtrl as home">
-	<h1 ng-bind="home.welcomeText"></h1>
+<div ng-controller="homeCtrl as vm">
+	<h1 ng-bind="vm.welcomeText" ng-cloak></h1>
 </div>
