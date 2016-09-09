@@ -8,7 +8,7 @@ var db = mongo.db("mongodb://localhost:27017/people", {native_parser:true});
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(function(req,res,next){
+app.use(function(req,res,next){ 
 	req.db = db;
 	res.header('Access-Control-Allow-Origin', '*');
 	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
