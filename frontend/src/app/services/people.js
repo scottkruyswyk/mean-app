@@ -4,7 +4,7 @@ angular.module('myApp.services', [])
 people.$inject = ['$http'];
 
 function people($http) {
-	var apiUrl = "http://localhost:8080/person";
+	var apiUrl = "http://localhost:8080/api/people";
 	
 	var service = {
 		getPeople: getPeople,
