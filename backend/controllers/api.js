@@ -3,7 +3,6 @@ var Person = require('../models/person');
 var post = function(req, res) {
     new Person({
     	firstName: req.body.firstName,
-    	middleName: req.body.middleName,
     	lastName: req.body.lastName,
     	birthday: new Date(req.body.birthday)
     }).save();

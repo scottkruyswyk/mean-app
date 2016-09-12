@@ -1,0 +1,51 @@
+<div ui-view='header'></div>
+<md-content ng-controller="nutritionCtrl">
+
+  <md-card class="table-responsive-vertical md-whiteframe-4dp">
+
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <span>Nutrition</span>
+        <div flex></div>
+        <md-button class="md-icon-button">
+          <md-icon>refresh</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <div class="table-responsive-vertical table-scroll-container">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Dessert (100g serving)</th>
+            <th>Type</th>
+            <th>Calories</th>
+            <th>Fat (g)</th>
+            <th>Carbs (g)</th>
+            <th>Protein (g)</th>
+            <th>Sodium (mg)</th>
+            <th>Calcium (%)</th>
+            <th>Iron (%)</th>
+            <th>
+              <md-icon>comments</md-icon>
+              <span>Comments</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="row in data.rows">
+            <td data-title="Dessert (100g)">{{row.name}}</td>
+            <td data-title="Type">{{row.type}}</td>
+            <td data-title="Calories">{{row.calories.value}}</td>
+            <td data-title="Fat (g)">{{row.fat.value | number: 2}}</td>
+            <td data-title="Carbs (g)">{{row.carbs.value}}</td>
+            <td data-title="Protein (g)">{{row.protein.value | number: 2}}</td>
+            <td data-title="Sodium (mg)">{{row.sodium.value}}</td>
+            <td data-title="Calcium (%)">{{row.calcium.value}}%</td>
+            <td data-title="Iron (%)">{{row.iron.value}}%</td>
+            <td data-title="">{{row.comment || 'Add a comment'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </md-card>
+</md-content>

@@ -1,4 +1,36 @@
 <div ui-view='header'></div>
-<div>
-	<h1 ng-bind="vm.welcomeText" ng-cloak></h1>
-</div>
+<md-content layout-align="center" layout="row" ng-cloak>
+	<md-card layout-margin flex="33">
+		<form name="vm.createUserForm" ng-submit="vm.addUser()">
+
+			<div layout="row">
+				<md-input-container flex="50">
+					<label>First Name</label>
+					<input required="" name="firstName" ng-model="vm.user.firstName">
+				</md-input-container>
+
+				<md-input-container flex="50">
+					<label>Last Name</label>
+					<input required name="clientName" ng-model="vm.user.clientName">
+				</md-input-container>
+			</div>
+
+			<div layout="row">
+				<md-input-container class="md-block" flex-gt-xs>
+					<label>Email</label>
+					<input required type="email" name="clientEmail" ng-model="vm.user.clientEmail"
+					minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+				</md-input-container>
+				<md-input-container>
+					<label>DOB</label>
+					<md-datepicker ng-model="vm.user.birthDate"></md-datepicker>
+				</md-input-container>
+			</div>
+
+			<div>
+				<md-button class="md-primary" type="submit">Submit</md-button>
+			</div>
+		</form>
+	</md-card>
+
+</md-content>

@@ -5,14 +5,15 @@ homeCtrl.$inject = ['people'];
 
 function homeCtrl(people){
 	var vm = this;
+	vm.addUser = addUser;
 
 	activate();
 
 	function activate() {
-		people.getPeople().then(function(response) {
-			vm.welcomeText = JSON.stringify(response.data.People);
-		}, function(error) {
-			vm.errorText = error;
-		});
+		
 	}
-};
+
+	function addUser() {
+
+	}
+}

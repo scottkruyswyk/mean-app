@@ -4,11 +4,12 @@ angular.module('myApp.services', [])
 people.$inject = ['$http'];
 
 function people($http) {
-	var apiUrl = "http://localhost:8080/api/people";
+	var apiUrl = 'http://localhost:8080/api/people';
 	
 	var service = {
 		getPeople: getPeople,
-		getPersonById: getPersonById
+		getPersonById: getPersonById,
+		createPerson: createPerson
 	};
 
 	return service;
@@ -21,6 +22,10 @@ function people($http) {
 	function getPersonById(id) {
 		var url = apiUrl + '/' + id;
 		return $http.get(url);
+	}
+
+	function createPerson(person) {
+		return $http.post(apiUrl, person);
 	}
 }
 
